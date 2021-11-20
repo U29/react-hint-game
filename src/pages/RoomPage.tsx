@@ -1,16 +1,17 @@
-import { Typography, Box, Chip, Tooltip, ClickAwayListener } from "@mui/material";
+import { Typography, Box, Chip, Tooltip, ClickAwayListener, Button } from "@mui/material";
 import { useParams } from "react-router-dom";
-import FaceIcon from '@mui/icons-material/Face'
-import StarsIcon from '@mui/icons-material/Stars';
-import styled from "@emotion/styled";
-import { ReactEventHandler, SyntheticEvent, useState } from "react";
+import { useState } from "react";
 import testUsers from "../test_json/Users.json";
 import UserChip from "../components/UserChip";
+import InviteButton from "../components/InviteButton";
 
+type RoomPageType = {
+    roomId: string
+}
 
-const RoomPage = () => {
+const RoomPage = ( {roomId}:RoomPageType ) => {
     const Users = testUsers;
-    const { roomId } = useParams();
+    // const { roomId } = useParams();
     const [users, setUsers] = useState(Users);   
 
     return (
@@ -23,6 +24,9 @@ const RoomPage = () => {
                 { 
                     users.users.map((user) => <UserChip user={user} key={user.clientId} />)
                 }
+            </Box>
+            <Box>
+                <InviteButton roomId={roomId} />
             </Box>
         </Box>
     );    

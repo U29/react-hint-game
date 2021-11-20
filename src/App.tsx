@@ -30,7 +30,7 @@ const App = () => {
                         <Routes>
                             <Route path="/" element={<TopPage />} />
                             <Route path="/join/:roomId" element={<TopPage />} />
-                            <Route path="/room/:roomId" element={<RoomPage />} />
+                            <Route path="/room/:roomId" element={<RoomPage roomId={'1234'} />} />
                         </Routes>
                     </Router>
                     <DebugButtons />
