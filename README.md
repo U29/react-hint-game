@@ -7,5 +7,5 @@ A hint game like the "JUST ONE" on web
 - Webpack
 - Node.js
 - Express
-- Socket.io
+- Socket.io  
    in TypeScript.
