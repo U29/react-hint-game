@@ -66,6 +66,7 @@ const UserChip = ( { user }:UserChipType ) => {
                         <CustomChip icon={<FaceIcon />} deleteIcon={HostIcon} label={user.name} onClick={handleClickUser} onDelete={handleTooltipOpen} color={clientId===user.clientId ? "primary" : "default"} />
                     </ClickAwayListener>
             }
+            {/* // TODO: ホスト以外がユーザーをクリックできないように修正する。 */}
             <RoomHostUserEditDialog selectedDialogValue={selectedDialogValue} openDialog={openDialog} onClose={handleCloseDialog} userName={user.name} />
         </>
     );

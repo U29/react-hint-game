@@ -8,7 +8,7 @@ type EntryPlayerNameType = {
 const NameField = ({playerName, setPlayerName}:EntryPlayerNameType) => {
     return (
         <Box sx={{pb:3}}>
-            <TextField id="input-player-name" label="プレイヤー名" variant="outlined" value={playerName} onChange={e => setPlayerName(e.target.value)} autoComplete="off" />
+            <TextField required id="input-player-name" label="プレイヤー名" variant="outlined" value={playerName} onChange={e => setPlayerName(e.target.value)} autoComplete="off" />
         </Box>
     );
 }
