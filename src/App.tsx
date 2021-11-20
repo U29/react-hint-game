@@ -16,6 +16,7 @@ import DebugButtons from "./components/DebugButtons";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import TopPage from "./pages/TopPage";
 import RoomPage from "./pages/RoomPage";
+import RedirectToTop from "./components/RedirectToTop";
 
 const App = () => {
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
@@ -30,7 +31,9 @@ const App = () => {
                         <Routes>
                             <Route path="/" element={<TopPage />} />
                             <Route path="/join/:roomId" element={<TopPage />} />
-                            <Route path="/room/:roomId" element={<RoomPage roomId={'1234'} />} />
+                                <Route path="/room" element={<RedirectToTop />} />
+                                <Route path="/room/:roomId" element={<RoomPage roomId={'1234'} />} />
+
                         </Routes>
                     </Router>
                     <DebugButtons />
