@@ -1,5 +1,5 @@
 import { Button, Box, Tab } from "@mui/material";
-import { useState, SyntheticEvent } from "react";
+import { useState, SyntheticEvent, useEffect } from "react";
 import EntryHostGame from "../components/EntryHostGame";
 import EntryJoinGame from "../components/EntryJoinGame";
 import TabContext from '@mui/lab/TabContext';
@@ -13,9 +13,15 @@ const TopPage = () => {
         setTabValue(newValue);
     };
     const [playerName, setPlayerName] = useState('');
-    // const { roomId } = Object.keys(useParams()).length ? '1234' : '1234';
-    const params = useParams();
-    const { roomId } = Object.keys(params).length === 0 && params.constructor === Object ? {roomId: ''} : params;
+    const paramRoomId = useParams().roomId;
+    const [roomId, setRoomId] = useState('');
+    useEffect(()=>{
+        if(paramRoomId !== '' && typeof(paramRoomId) !== 'undefined'){
+            setRoomId(paramRoomId);
+        }else{
+            setRoomId('');
+        }
+    }, []);
     return (
         <Box sx={{width: '100%'}}>
             <TabContext value={tabValue}>

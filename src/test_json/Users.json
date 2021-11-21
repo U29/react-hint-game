@@ -16,9 +16,14 @@
             "clientId": "randomCCCC"
         },
         {
-            "name": "ユーザー04",
+            "name": "ユーザー04134123412341234123412342341234000000000000000",
             "isHost": false,
             "clientId": "randomDDDD"
+        },
+        {
+            "name": "ユーザー05",
+            "isHost": false,
+            "clientId": "randomEEEE"
         }
     ]
 }
