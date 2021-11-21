@@ -1,4 +1,4 @@
-import { Chip, Tooltip, ClickAwayListener } from "@mui/material";
+import { Chip, Tooltip, ClickAwayListener, Grid } from "@mui/material";
 import FaceIcon from "@mui/icons-material/Face";
 import StarsIcon from '@mui/icons-material/Stars';
 import styled from "@emotion/styled";
@@ -58,16 +58,18 @@ const UserChip = ( { user }:UserChipType ) => {
 
     return (
         <>
-            {
-                !user.isHost ? 
-                    <CustomChip icon={<FaceIcon />} label={user.name} onClick={handleClickUser} color={clientId===user.clientId ? "primary" : "default"} />
-                    :
-                    <ClickAwayListener onClickAway={handleCloseTooltip}>
-                        <CustomChip icon={<FaceIcon />} deleteIcon={HostIcon} label={user.name} onClick={handleClickUser} onDelete={handleTooltipOpen} color={clientId===user.clientId ? "primary" : "default"} />
-                    </ClickAwayListener>
-            }
-            {/* // TODO: ホスト以外がユーザーをクリックできないように修正する。 */}
-            <RoomHostUserEditDialog selectedDialogValue={selectedDialogValue} openDialog={openDialog} onClose={handleCloseDialog} userName={user.name} />
+            <Grid item>
+                {
+                    !user.isHost ? 
+                        <CustomChip icon={<FaceIcon />} label={user.name} onClick={handleClickUser} color={clientId===user.clientId ? "primary" : "default"} />
+                        :
+                        <ClickAwayListener onClickAway={handleCloseTooltip}>
+                            <CustomChip icon={<FaceIcon />} deleteIcon={HostIcon} label={user.name} onClick={handleClickUser} onDelete={handleTooltipOpen} color={clientId===user.clientId ? "primary" : "default"} />
+                        </ClickAwayListener>
+                }
+            </Grid>
+                {/* // TODO: ホスト以外がユーザーをクリックできないように修正する。 */}
+                <RoomHostUserEditDialog selectedDialogValue={selectedDialogValue} openDialog={openDialog} onClose={handleCloseDialog} userName={user.name} />
         </>
     );
 }
